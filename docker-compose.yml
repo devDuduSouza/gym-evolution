@@ -1,0 +1,12 @@
+services:
+  app:
+    build: .
+    container_name: gym_app
+    restart: unless-stopped
+    ports:
+      - "3003:3000"
+    volumes:
+      - gym_data:/app/data
+
+volumes:
+  gym_data:

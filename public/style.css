@@ -1,0 +1,47 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: system-ui, -apple-system, sans-serif; background: #1a1a1a; color: #e0e0e0; min-height: 100vh; }
+.container { max-width: 1400px; margin: 0 auto; padding: 24px; }
+header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+h1 { font-size: 1.5rem; color: #ffffff; font-weight: 600; }
+.period { color: #888; font-size: 0.85rem; margin-top: 4px; }
+.header-buttons { display: flex; gap: 10px; align-items: center; }
+.btn-primary { background: #4a9eff; color: #fff; border: none; padding: 10px 20px; border-radius: 6px; font-size: 0.9rem; cursor: pointer; font-weight: 500; transition: background 0.2s; }
+.btn-primary:hover { background: #3a8eef; }
+.btn-secondary { background: #3a3a3a; color: #e0e0e0; border: 1px solid #555; padding: 10px 20px; border-radius: 6px; font-size: 0.9rem; cursor: pointer; transition: background 0.2s; }
+.btn-secondary:hover { background: #4a4a4a; }
+.btn-icon { background: none; border: none; cursor: pointer; padding: 4px; font-size: 0.8rem; opacity: 0.5; transition: opacity 0.2s; }
+.btn-icon:hover { opacity: 1; }
+.btn-edit { color: #4a9eff; }
+.btn-delete { color: #ff4a4a; }
+.table-wrapper { overflow-x: auto; border-radius: 8px; border: 1px solid #333; }
+table { width: 100%; border-collapse: collapse; min-width: 600px; }
+thead th { background: #252525; padding: 12px 16px; text-align: center; font-weight: 600; font-size: 0.85rem; color: #ccc; border-bottom: 2px solid #333; white-space: nowrap; }
+thead th:first-child { text-align: left; position: sticky; left: 0; background: #252525; z-index: 2; }
+thead th .header-label { display: block; font-size: 0.75rem; color: #888; font-weight: 400; margin-top: 2px; }
+thead th .header-actions { display: flex; gap: 4px; justify-content: center; margin-top: 4px; }
+thead th.col-evolution { background: #1e2a1e; color: #8bc34a; }
+tbody td { padding: 10px 16px; text-align: center; font-size: 0.9rem; border-bottom: 1px solid #2a2a2a; }
+tbody td:first-child { text-align: left; font-weight: 500; color: #ccc; position: sticky; left: 0; background: #1a1a1a; z-index: 1; }
+tbody tr:hover td { background: #2d2d2d; }
+tbody tr:hover td:first-child { background: #2d2d2d; }
+td.evolution { font-weight: 600; background: #1e2a1e !important; }
+td.evolution.positive { color: #66bb6a; }
+td.evolution.negative { color: #ef5350; }
+td.evolution.warning { color: #ffa726; }
+td.evolution.neutral { color: #888; }
+.empty-msg { text-align: center; padding: 60px 20px; color: #666; font-size: 1rem; }
+.modal-overlay { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.7); display: flex; align-items: center; justify-content: center; z-index: 100; }
+.modal-overlay.hidden { display: none; }
+.modal { background: #2d2d2d; border-radius: 12px; padding: 28px; width: 90%; max-width: 600px; max-height: 90vh; overflow-y: auto; border: 1px solid #444; }
+.modal h2 { margin-bottom: 20px; font-size: 1.2rem; color: #fff; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
+.form-group { display: flex; flex-direction: column; gap: 4px; }
+.form-group label { font-size: 0.8rem; color: #999; }
+.form-group input, .form-group select, .form-group textarea { background: #1a1a1a; border: 1px solid #444; border-radius: 6px; padding: 8px 12px; color: #e0e0e0; font-size: 0.9rem; outline: none; transition: border-color 0.2s; font-family: inherit; }
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: #4a9eff; }
+.profile-hint { color: #888; font-size: 0.8rem; margin-bottom: 16px; }
+.form-actions { display: flex; justify-content: flex-end; gap: 10px; }
+.toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); background: #4a9eff; color: #fff; padding: 12px 24px; border-radius: 8px; font-size: 0.9rem; z-index: 200; animation: fadeInOut 2s ease-in-out forwards; }
+@keyframes fadeInOut { 0% { opacity: 0; transform: translateX(-50%) translateY(10px); } 15% { opacity: 1; transform: translateX(-50%) translateY(0); } 85% { opacity: 1; transform: translateX(-50%) translateY(0); } 100% { opacity: 0; transform: translateX(-50%) translateY(-10px); } }
+@media (max-width: 600px) { .form-row, .form-grid { grid-template-columns: 1fr; } header { flex-direction: column; align-items: flex-start; gap: 12px; } }

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Evolução Corporal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div>
+        <h1>Planilha de Evolução Consolidada</h1>
+        <p id="period" class="period"></p>
+      </div>
+      <div class="header-buttons">
+        <button id="btn-profile" class="btn-secondary" title="Editar perfil">👤 Perfil</button>
+        <button id="btn-export-prompt" class="btn-secondary" title="Copiar prompt para IA">📋 Exportar Prompt</button>
+        <button id="btn-new" class="btn-primary">+ Nova Medição</button>
+      </div>
+    </header>
+    <div class="table-wrapper">
+      <table id="measurements-table">
+        <thead id="table-head"></thead>
+        <tbody id="table-body"></tbody>
+      </table>
+      <p id="empty-msg" class="empty-msg">Nenhuma medição registrada. Clique em "+ Nova Medição" para começar.</p>
+    </div>
+  </div>
+  <div id="modal" class="modal-overlay hidden">
+    <div class="modal">
+      <h2 id="modal-title">Nova Medição</h2>
+      <form id="measurement-form">
+        <input type="hidden" id="form-id">
+        <div class="form-row">
+          <div class="form-group"><label for="form-date">Data</label><input type="date" id="form-date" required></div>
+          <div class="form-group"><label for="form-label">Rótulo</label><input type="text" id="form-label" placeholder='Ex: "Início", "Semana 4"'></div>
+        </div>
+        <div class="form-grid">
+          <div class="form-group"><label for="form-peso">Peso (kg)</label><input type="number" id="form-peso" step="0.1"></div>
+          <div class="form-group"><label for="form-biceps_contraido">Bíceps Contraído (cm)</label><input type="number" id="form-biceps_contraido" step="0.1"></div>
+          <div class="form-group"><label for="form-biceps_relaxado">Bíceps Relaxado (cm)</label><input type="number" id="form-biceps_relaxado" step="0.1"></div>
+          <div class="form-group"><label for="form-antebraco">Antebraço (cm)</label><input type="number" id="form-antebraco" step="0.1"></div>
+          <div class="form-group"><label for="form-ombro_bustos">Ombro/Bustos (cm)</label><input type="number" id="form-ombro_bustos" step="0.1"></div>
+          <div class="form-group"><label for="form-peito">Peito (cm)</label><input type="number" id="form-peito" step="0.1"></div>
+          <div class="form-group"><label for="form-cintura_buxinho">Cintura - Buxinho (cm)</label><input type="number" id="form-cintura_buxinho" step="0.1"></div>
+          <div class="form-group"><label for="form-cintura_umbigo">Cintura - Umbigo (cm)</label><input type="number" id="form-cintura_umbigo" step="0.1"></div>
+          <div class="form-group"><label for="form-coxa_superior">Coxa Superior (cm)</label><input type="number" id="form-coxa_superior" step="0.1"></div>
+          <div class="form-group"><label for="form-coxa_inferior">Coxa Inferior (cm)</label><input type="number" id="form-coxa_inferior" step="0.1"></div>
+          <div class="form-group"><label for="form-panturrilha">Panturrilha (cm)</label><input type="number" id="form-panturrilha" step="0.1"></div>
+        </div>
+        <div class="form-actions">
+          <button type="button" id="btn-cancel" class="btn-secondary">Cancelar</button>
+          <button type="submit" class="btn-primary">Salvar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div id="modal-profile" class="modal-overlay hidden">
+    <div class="modal">
+      <h2>Meu Perfil</h2>
+      <p class="profile-hint">Essas informações são incluídas no prompt exportado para a IA dar feedbacks mais precisos.</p>
+      <form id="profile-form">
+        <div class="form-grid">
+          <div class="form-group"><label for="profile-sexo">Sexo</label><select id="profile-sexo"><option value="">--</option><option value="Masculino">Masculino</option><option value="Feminino">Feminino</option></select></div>
+          <div class="form-group"><label for="profile-idade">Idade</label><input type="number" id="profile-idade" placeholder="Ex: 25"></div>
+          <div class="form-group"><label for="profile-altura">Altura (cm)</label><input type="number" id="profile-altura" step="1" placeholder="Ex: 175"></div>
+          <div class="form-group"><label for="profile-freq">Treinos por semana</label><input type="number" id="profile-freq" placeholder="Ex: 5"></div>
+        </div>
+        <div class="form-group"><label for="profile-calorias">Calorias por dia (kcal)</label><input type="number" id="profile-calorias" placeholder="Ex: 2500"></div>
+        <div class="form-group" style="margin-bottom: 20px;"><label for="profile-rotina">Rotina de treino</label><textarea id="profile-rotina" rows="3" placeholder="Ex: Musculação 5x/semana, 30 min de cardio (6km) ao fim de cada treino"></textarea></div>
+        <div class="form-actions">
+          <button type="button" id="btn-profile-cancel" class="btn-secondary">Cancelar</button>
+          <button type="submit" class="btn-primary">Salvar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
